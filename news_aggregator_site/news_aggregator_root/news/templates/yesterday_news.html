@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Articles</title>
+    
+</head>
+<body style="margin: 0;">
+    <div style="margin-right: 10%;margin-left: 10%;background-color: beige;">
+
+    <form method="post">
+        {%csrf_token%}
+        {{form}}
+        <input type="submit"value="Order">
+    </form>
+
+        {% for  article in articles %}
+            <h3 style="margin: 20px;margin-bottom:0;padding-top: 20px;">{{article.Source}}</h3>
+            <h4 style="margin: 20px;margin-top: 0;">{{article.Author}} </h4>
+            <h2 style="margin: 20px;">{{ article.Title }}</h2><hr style="margin: 10px;">
+            <p style="margin: 20px;">{{ article.Description }}</p>
+            <p style="margin: 20px;">{{ article.Article }}</p>
+            <p style="margin: 20px;"><a href="{{ article.Url }}" target="_blank">Read the full article</a></p>
+            <hr style="height: 4px;background-color: blue;border: none;margin-right: 50%;margin-left: 10px;">
+        {% endfor %}
+    <!-- {{news}} -->
+    </div>
+</body>
+</html>
